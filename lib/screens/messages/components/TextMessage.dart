@@ -1,5 +1,6 @@
 import 'package:chatapp/constants.dart';
 import 'package:chatapp/models/ChatMessage.dart';
+import 'package:chatapp/screens/messages/components/body.dart';
 import 'package:flutter/material.dart';
 
 
@@ -8,7 +9,7 @@ class TextMessage extends StatelessWidget {
     Key key,
     this.message
   }) : super(key: key);
-  final ChatMessage message;
+  final Message message;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,13 @@ class TextMessage extends StatelessWidget {
         vertical: kDefaultPadding / 2,
       ),
       decoration: BoxDecoration(
-        color: kPrimaryColor.withOpacity(message.isSender ? 1 : 0.08),
+        color: kPrimaryColor.withOpacity(message.issender ? 1 : 0.08),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Text(
         message.text,
         style: TextStyle(color:
-        message.isSender
+        message.issender
         ? Colors.white
         : Theme.of(context).textTheme.bodyText1.color,
         ),
